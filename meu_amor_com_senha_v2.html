@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🤍 Meu Amor 🤍</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;text-align:center;color:#713b59;background:linear-gradient(135deg,#ffe0ed,#f1ddff,#fff0f5);overflow-x:hidden}
+#lockScreen{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;align-items:center;justify-content:center;padding:14px;color:#d63384}
+.lock-panel{width:min(690px,100%);display:grid;grid-template-columns:1.05fr 1fr;gap:22px;align-items:center}
+.dog-side{display:flex;align-items:center;justify-content:center;min-width:0}
+.dog-art{display:block;width:100%;max-width:300px;height:auto}
+.dog-caption{display:none}
+.lock-controls{width:100%;max-width:285px;margin:0 auto}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:1px 8px;max-width:280px;margin:0 auto}
+.pin-boxes{display:flex;justify-content:center;gap:7px;margin:0 auto 10px}
+.pin-box{width:31px;height:35px;border:4px solid #454141;border-radius:8px;display:grid;place-items:center;font-size:21px;font-weight:bold;color:#e75499;background:#fff}
+.pin-box.filled{background:#fff0f7}
+.heart-key{border:0!important;background:transparent!important;color:#d63384!important;position:relative;height:51px;width:100%;font-size:21px;font-weight:normal;cursor:pointer;padding:0!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
+.heart-key::before{content:"♥";position:absolute;inset:0;font-size:53px;line-height:51px;color:#f4a9c7;z-index:0}
+.heart-key span{position:relative;z-index:1;color:#c84c79;font-weight:500}
+.heart-key:active{transform:scale(.94)}
+.lock-title{display:none}
+.lock-subtitle{display:none}
+#pinFeedback{min-height:18px;font-size:12px;color:#b51f64;margin-top:3px}
+@media(max-width:430px){#lockScreen{padding:10px}.lock-panel{grid-template-columns:1fr 1fr;gap:7px;max-width:420px}.dog-art{width:100%;max-width:190px}.lock-controls{max-width:220px}.keypad{gap:0 2px}.heart-key{height:43px}.heart-key::before{font-size:45px;line-height:43px}.pin-boxes{gap:4px;margin-bottom:8px}.pin-box{width:clamp(20px,6vw,28px);height:32px;border-width:3px;border-radius:7px;font-size:18px}.lock-title,.lock-subtitle{display:none}#pinFeedback{font-size:10px;min-height:16px}}
+@media(min-width:431px){.pin-box{width:34px;height:38px}.heart-key{height:57px}.heart-key::before{font-size:59px;line-height:57px}}
+header{padding:28px 12px}
+h1{color:#d63384;font-size:34px}h2{color:#c04483}
+section{position:relative;z-index:1;background:#ffffffeb;margin:18px auto;padding:22px 15px;border-radius:22px;width:92%;max-width:650px;box-shadow:0 5px 18px #d99aba40}
+p{line-height:1.6}
+button{border:0;background:#e75499;color:white;padding:12px 16px;border-radius:20px;margin:5px;font-size:15px;cursor:pointer}
+button:active{transform:scale(.97)}
+input,textarea{max-width:100%;padding:11px;border:1px solid #efb5d0;border-radius:12px;margin:7px;font-size:15px}
+input[type=file]{width:100%}.card{background:#fff0f7;padding:14px;margin:10px 0;border-radius:16px}.hidden{display:none!important}
+.big{font-size:40px}#photos img{width:100%;max-width:230px;height:210px;object-fit:cover;margin:7px;border-radius:15px}
+#player{width:100%}#gameArea{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:360px;margin:15px auto}
+.gameCell{margin:0;padding:8px 2px;min-height:58px;font-size:24px;background:#ffe0ed;color:#d63384;border-radius:12px}
+.gift{font-size:38px;background:#fff0f7;padding:14px}#sky{display:none;position:fixed;inset:0;background:radial-gradient(ellipse at bottom,#34265f,#08091e 75%);z-index:20;color:white;overflow:hidden}
+#sky h2{color:#ffd2ef}#skyMessage{position:relative;z-index:2;margin:45px 20px}.star{position:absolute;color:white;animation:twinkle 1.5s infinite alternate;pointer-events:none}
+@keyframes twinkle{from{opacity:.25}to{opacity:1}}.floating{position:fixed;bottom:-40px;z-index:0;pointer-events:none;animation:floatUp linear forwards}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}footer{padding:25px;color:#a14c78;position:relative;z-index:1}
+.gold{color:#ffe66d;text-shadow:0 0 7px #ffd700,0 0 16px #ffd700;font-weight:bold}
+#photos{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}textarea{width:95%;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+<!-- Proteção visual de demonstração: a senha fica no JavaScript e não é segurança real. -->
+<div id="lockScreen">
+  <div class="lock-panel">
+    <div class="dog-side">
+      <svg class="dog-art" viewBox="0 0 300 330" role="img" aria-label="cachorrinho branco segurando um buquê de flores cor-de-rosa" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#55504a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- orelha e corpo do cachorrinho -->
+          <path d="M82 122 C43 96 39 146 65 178 C75 191 91 190 104 174" fill="#665747"/>
+          <path d="M94 116 C75 88 87 54 124 43 C156 33 187 50 198 77 C210 105 197 132 178 147 L174 238 C175 263 157 280 131 278 L96 274 C82 272 78 260 87 250 L102 231 L96 176 C82 158 81 137 94 116Z" fill="#fffdf7"/>
+          <path d="M104 230 C82 233 69 250 78 267 C83 277 102 278 124 278 L143 278 C159 278 166 269 160 261 C155 255 142 255 129 257 L117 242" fill="#fffdf7"/>
+          <path d="M157 251 C175 248 190 257 190 267 C190 275 177 279 161 277 L137 277" fill="#fffdf7"/>
+          <path d="M107 96 C116 91 123 92 129 96" fill="none" stroke-width="1.5"/>
+          <path d="M151 94 C158 89 166 90 172 95" fill="none" stroke-width="1.5"/>
+          <path d="M130 111 Q136 116 142 111" fill="none" stroke-width="1.6"/>
+          <circle cx="190" cy="82" r="7" fill="#665747"/>
+          <path d="M178 106 Q166 118 151 110" fill="none" stroke="#e6a1a8" stroke-width="1.5"/>
+          <path d="M107 139 C123 151 135 160 151 171" fill="none" stroke-width="2"/>
+          <!-- hastes e folhas do buquê -->
+          <path d="M153 179 L193 119 M154 180 L210 139 M151 180 L185 151 M151 180 L200 161" fill="none" stroke="#718d55" stroke-width="3"/>
+          <path d="M177 148 Q161 133 166 121 Q183 126 177 148Z" fill="#9bb77c" stroke="#718d55" stroke-width="1.2"/>
+          <path d="M191 135 Q188 116 202 110 Q207 126 191 135Z" fill="#a8bd82" stroke="#718d55" stroke-width="1.2"/>
+          <path d="M183 160 Q166 151 169 140 Q186 145 183 160Z" fill="#a8bd82" stroke="#718d55" stroke-width="1.2"/>
+          <!-- flores -->
+          <g fill="#f6a9c5" stroke="#dc829f" stroke-width="1.1">
+            <circle cx="179" cy="110" r="10"/><circle cx="169" cy="104" r="9"/><circle cx="169" cy="116" r="9"/><circle cx="181" cy="121" r="9"/><circle cx="190" cy="112" r="9"/><circle cx="179" cy="111" r="4" fill="#e6c56b"/>
+            <circle cx="207" cy="133" r="9"/><circle cx="198" cy="127" r="8"/><circle cx="198" cy="138" r="8"/><circle cx="209" cy="142" r="8"/><circle cx="216" cy="133" r="8"/><circle cx="207" cy="134" r="3.5" fill="#e6c56b"/>
+            <circle cx="194" cy="157" r="8"/><circle cx="185" cy="151" r="7"/><circle cx="186" cy="161" r="7"/><circle cx="196" cy="165" r="7"/><circle cx="202" cy="156" r="7"/><circle cx="194" cy="157" r="3" fill="#e6c56b"/>
+          </g>
+          <path d="M142 177 Q159 169 170 180 L159 194 Q149 188 142 177Z" fill="#fffdf7"/>
+          <path d="M145 181 L191 210 M151 185 L184 218 M158 189 L177 222" fill="none" stroke="#718d55" stroke-width="2.5"/>
+          <path d="M195 230 Q211 212 225 227 Q216 243 195 230Z" fill="#9bb77c" stroke="#718d55" stroke-width="1.2"/>
+          <g fill="#f6a9c5" stroke="#dc829f" stroke-width="1">
+            <circle cx="211" cy="222" r="7"/><circle cx="204" cy="218" r="6"/><circle cx="204" cy="226" r="6"/><circle cx="212" cy="230" r="6"/><circle cx="218" cy="222" r="6"/><circle cx="211" cy="222" r="2.5" fill="#e6c56b"/>
+          </g>
+        </g>
+        <path d="M113 66 Q124 60 134 65" fill="none" stroke="#f0c1cb" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="lock-controls">
+      <h2 class="lock-title">Meu Amor 🤍</h2>
+      <p class="lock-subtitle">Digite nossa senha</p>
+      <div class="pin-boxes" id="pinBoxes" aria-label="Senha digitada">
+        <div class="pin-box"></div><div class="pin-box"></div><div class="pin-box"></div><div class="pin-box"></div><div class="pin-box"></div><div class="pin-box"></div><div class="pin-box"></div><div class="pin-box"></div>
+      </div>
+      <div class="keypad">
+        <button class="heart-key" onclick="pressDigit('1')"><span>1</span></button>
+        <button class="heart-key" onclick="pressDigit('2')"><span>2</span></button>
+        <button class="heart-key" onclick="pressDigit('3')"><span>3</span></button>
+        <button class="heart-key" onclick="pressDigit('4')"><span>4</span></button>
+        <button class="heart-key" onclick="pressDigit('5')"><span>5</span></button>
+        <button class="heart-key" onclick="pressDigit('6')"><span>6</span></button>
+        <button class="heart-key" onclick="pressDigit('7')"><span>7</span></button>
+        <button class="heart-key" onclick="pressDigit('8')"><span>8</span></button>
+        <button class="heart-key" onclick="pressDigit('9')"><span>9</span></button>
+        <button class="heart-key" onclick="clearPin()"><span>*</span></button>
+        <button class="heart-key" onclick="pressDigit('0')"><span>0</span></button>
+        <button class="heart-key" onclick="checkPin()"><span>#</span></button>
+      </div>
+      <div id="pinFeedback" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+<div id="siteContent" class="hidden">
+<header><div class="big"></div><h1>🤍Meu Amor🤍</h1><p>fiz esse presentinho pra vc gatinha espero q goste viu</p></header>
+<section><h2>❤️ Nossa história❤️</h2><p>O dia que tudo começou 11/04/2024</p><h2 id="daysResult">Calculando nosso tempo juntos... 🤍</h2><button onclick="relationshipDays()">Atualizar contador 🤍</button></section>
+<section><h2>❤️ Mensagens para vc❤️</h2><div class="card"><h3>Quando ce tiver triste 😔</h3><button onclick="showText('msg2')">Abrir mensagem</button><p id="msg2" class="hidden">saiba q eu tô contigo amor independente do q aconteça eu vo ta do teu lado te apoiando pode conta comigo pra tudo princesa 🤍</p></div><div class="card"><h3>Por que gosto de tu❤️</h3><button onclick="showText('msg3')">Descobrir</button><p id="msg3" class="hidden">porque tu é tu amor ce é única ce é incrível eu te amo muito</p></div></section>
+<section><h2>Eu e vc ❤️</h2><div id="photos">
+<img src="https://i.ibb.co/DPp9tPxj/5ba08bb00df38d68998122269f1ee33b.jpg" alt="nós 1"><img src="https://i.ibb.co/5xxF7Mbh/72a11794548bf4ba38f562fab6ecdb97.jpg" alt="nós 2"><img src="https://i.ibb.co/s91hW0tg/5f4b09be8e70d1d52be50073f2035b3f.jpg" alt="nós 3"><img src="https://i.ibb.co/HT0Ly0QC/aca4549d579d0dcb1fe19a0c886879d6.jpg" alt="nós 4"><img src="https://i.ibb.co/7DQQj8Y/d44ce15a23dc45102e14c7f77c4fc9e7.jpg" alt="nós 5"></div></section>
+<section><h2>🎵 Música q me lembra nós 🤍</h2><p>Aliança — Tribalistas 🤍</p><button onclick="openMusic()">Ouvir nossa música 🤍</button></section>
+<section><h2>Quiz🤍</h2><p>Vamos ver se tu sabe, princesa ksksks</p><div id="quiz"><div class="card"><p><b>1. Oq eu mais amo em vc?</b></p><button onclick="answer(0,0)">Teu olhinho</button><button onclick="answer(0,0)">teu jeitinho</button><button onclick="answer(0,1)">tudo</button></div><div class="card"><p><b>2. quem ama mais?</b></p><button onclick="answer(1,1)">eu</button><button onclick="answer(1,0)">vc</button></div><div class="card"><p><b>3. uq vc mais ama em mim ?</b></p><textarea id="quizWritten" rows="3" placeholder="Escreve tua resposta aqui, princesa 🤍"></textarea><button onclick="submitWrittenAnswer()">Enviar resposta 🤍</button><p id="writtenResult"></p></div></div><h3 id="quizResult">Responde às perguntas nega🤍</h3><button onclick="resetQuiz()">Jogar novamente 🔄</button></section>
+<section><h2>🎁 Presentinhos para ti</h2><p>só toca nos presente pa veeee</p><button class="gift" onclick="openGift(0)">🎁</button><button class="gift" onclick="openGift(1)">💝</button><button class="gift" onclick="openGift(2)">🌷</button><p id="giftMessage">Escolhe um presentinho 🤍</p></section>
+<section><h2>🤍 um lugar especial</h2><p>Tem uma surpresa esperando por ti...</p><button onclick="openSky()">abreee ✨</button></section>
+<div id="sky"><button style="position:absolute;right:10px;top:10px;z-index:5" onclick="closeSky()">Fechar ✖</button><h2 style="margin-top:55px">✨ um lugar especial ✨</h2><div id="skyMessage"><p>e entre tanta escuridão tu é a <span class="gold">estrela</span> que deu <span class="gold">luz</span> a minha vida 🤍</p><div class="big">🤍</div></div></div>
+<section><h2>✉️ Cartinhas secretas</h2><p>Abre as cartas e descobre cada mensagem.</p><div class="card"><h3>💌 Carta 1 — Para hoje</h3><button onclick="unlockLetter(1)">Desbloquear</button><p id="letter1" class="hidden">quero que saiba que você faz muita diferença na minha vida e obrigada por ta do meu lado todo esse tempo fazendo a nossa história ❤️</p></div><div class="card"><h3>🌸 Carta 2 — Um lembrete</h3><button onclick="unlockLetter(2)">Desbloquear</button><p id="letter2" class="hidden">não esquece nunca do tanto q ce é incrível do tanto q é maravilhosa do tanto q ce é forte e que ce consegue tudo princesa eu te adimiro muito viu</p></div><div class="card"><h3>🤍 Carta 3 — Do coração</h3><button onclick="unlockLetter(3)">Desbloquear</button><p id="letter3" class="hidden">espero pode continuar do teu lado dando continuidade pra toda essa nossa história doida ksksksksksksks</p></div></section>
+<section><h2>🤍 Botão infinito</h2><p>Aperta aí ksksks</p><button onclick="infiniteLove()">Quero carinho 🤍</button><h3 id="loveMessage">Um carinho tá te esperando...</h3></section>
+<section><h2>🤍 Encontra os corações escondidos</h2><p>Há 5 corações escondidos. Consegues encontrar todos nega?</p><h3 id="gameScore">Corações encontrados: 0 de 5</h3><div id="gameArea"></div><button onclick="startGame()">Novo jogo 🔄</button><p id="gameMessage"></p></section>
+<section><h2>🤍 Uma atividade pra nós</h2><p>Se eu tivesse contigo agora, uq tu ia querer fazer?</p><button onclick="chooseActivity('te dar um abraço bem apertado 🤍')">Um abraço</button><button onclick="chooseActivity('te encher de beijinhos 😘')">Beijinhos</button><button onclick="chooseActivity('ficar juntinho contigo conversando 🤍')">Ficar juntinhos</button><p id="activityResult" class="hidden"></p></section>
+<section><h2>🤍 eu tenho uma coisa pra tu</h2><p>Tenho uma coisa pra te dizer. 🤍</p><button onclick="declaration()">Abrir minha declaração 🤍</button><div id="declarationText" class="hidden"><div class="big">🤍🥹🤍</div><p>Eu te amo muitao ce é a mulher mais incrível de todo o mundo e eu tenho muita sorte de ter te conhecido e de nós ter entrado na vida um do outro e saiba q eu so muito feliz do teu lado de verdade mesmo ce é perfeitinha do teu jeito amor e eu te amo te adimiro e acima de tudo eu te respeito muitao viu e isso nunca vai muda eu amo passa tempo com tu quando nos joga ou nos pinta quando nos conversa quando ce me provoca e paga de sonsa ksksksksksksksksksk enfim eu gosto de passa meu tempo contigo eu eu quero tanto poder continuar do teu lado te fazer muito feliz e eu tô me esforçando de vdd eu quero fazer da certo eu escolhi passa o resto da minha vida do teu lado então o mínimo q eu posso fazer é continuar te fazendo muitao feliz e cuida de ti eu te amo minha princesa nos ainda tem muita coisa pela frente viu e eu vo fazer vale a pena cada dia q ce passa ao meu lado 🤍</p></div></section>
+<section><h2>🌷 escreve algo amor</h2><p>aquii</p><input type="text" id="customTitle" placeholder="Escreve um título 🤍"><br><textarea id="customMessage" rows="4" placeholder="Escreve uma mensagem 🤍"></textarea><br><button onclick="saveCustomIdea()">Mostrar 🤍</button><div id="customResult"></div></section>
+<section><h2>Fimmmm 🤍</h2><button onclick="finalSurprise()">Toca aqui, meu amor 🤍</button><div id="finalMessage" class="hidden"><p>ce eu tivesse q escolher dnv eu escolheria vc e eu sempre vou te escolher amor eu te amo muitao minha princesa</p></div></section>
+<footer>Feito com muito carinho para tu 🤍<p>Uma história de cada vez, um sorriso de cada vez. ✨</p></footer>
+</div>
+<script>
+const DEMO_PASSWORD="11042024";
+let enteredPin="";
+function renderPin(){document.querySelectorAll(".pin-box").forEach((box,i)=>{box.textContent=enteredPin[i]?"*":"";box.classList.toggle("filled",!!enteredPin[i]);});}
+function pressDigit(d){if(enteredPin.length>=8)return;enteredPin+=d;renderPin();if(enteredPin.length===8)checkPin();}
+function clearPin(){enteredPin="";renderPin();document.getElementById("pinFeedback").textContent="";}
+function checkPin(){if(enteredPin===DEMO_PASSWORD){document.getElementById("lockScreen").classList.add("hidden");document.getElementById("siteContent").classList.remove("hidden");relationshipDays();}else{document.getElementById("pinFeedback").textContent="Senha incorreta, tenta de novo 🤍";enteredPin="";renderPin();}}
+document.addEventListener("keydown",e=>{if(document.getElementById("lockScreen").classList.contains("hidden"))return;if(/^[0-9]$/.test(e.key))pressDigit(e.key);else if(e.key==="Backspace")clearPin();else if(e.key==="Enter")checkPin();});
+function showText(id){document.getElementById(id).classList.toggle("hidden");}
+function relationshipDays(){const start=new Date(2024,3,11);const today=new Date();today.setHours(0,0,0,0);let years=today.getFullYear()-start.getFullYear(),months=today.getMonth()-start.getMonth(),days=today.getDate()-start.getDate();if(days<0){months--;days+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}if(months<0){years--;months+=12;}const weeks=Math.floor(days/7);days%=7;document.getElementById("daysResult").textContent=years+" anos, "+months+" meses, "+weeks+" semanas e "+days+" dias juntos 🤍";}
+function openMusic(){window.open("https://www.youtube.com/results?search_query=Alian%C3%A7a+Tribalistas","_blank");}
+let quizAnswers={};
+function answer(question,correct){if(quizAnswers[question]!==undefined)return;quizAnswers[question]=correct;const answered=Object.keys(quizAnswers).length,score=Object.values(quizAnswers).filter(Boolean).length;if(answered<2){document.getElementById("quizResult").textContent=(correct?"acertouuu 🤍":"hmmm tenta de novo ksks 🤍")+" Respondidas: "+answered+"/2";}else{document.getElementById("quizResult").textContent="Tu acertou "+score+" de 2 ksksks 🤍";}}
+function resetQuiz(){quizAnswers={};document.getElementById("quizResult").textContent="Responde às perguntas! 🤍";document.getElementById("writtenResult").textContent="";document.getElementById("quizWritten").value="";document.querySelectorAll("#quiz .card button").forEach(b=>b.disabled=false);}
+function submitWrittenAnswer(){const value=document.getElementById("quizWritten").value.trim();document.getElementById("writtenResult").textContent=value?"awnnn vou guardar tua resposta com carinho 🤍":"escreve tua resposta, princesa 🤍";}
+function openGift(n){const message=document.getElementById("giftMessage");if(n===0)message.innerHTML="um beijo pra vc 😘 😘 😘";else if(n===1){message.innerHTML="um abraço pra tuuu 🤍 <div style='font-size:25px'>❤️ ❤️ ❤️ ❤️ ❤️ ❤️</div>";hearts(20);}else message.textContent="uma flor pra mulher mais incrível do mundo todinho 🤍 🌷";}
+function openSky(){const sky=document.getElementById("sky");sky.style.display="block";sky.querySelectorAll(".star").forEach(s=>s.remove());for(let i=0;i<180;i++){const star=document.createElement("span");star.className="star";star.textContent=Math.random()>.75?"✦":"·";star.style.left=Math.random()*100+"%";star.style.top=Math.random()*100+"%";star.style.fontSize=(10+Math.random()*22)+"px";star.style.animationDelay=Math.random()*2+"s";sky.appendChild(star);}}
+function closeSky(){document.getElementById("sky").style.display="none";}
+function unlockLetter(n){document.getElementById("letter"+n).classList.toggle("hidden");hearts(3);}
+const affection=["eu te amo muitao viu 🤍","minha princesa linda 🤍","tu é muito especial pra mim","queria te dar um abraço agora 🤍","nunca esquece o quanto tu é incrível","eu escolheria tu de novo e de novo 🤍","tu deixa meus dias muito melhores","te amo, sua sonsinha ksksks 🤍","tu é minha pessoa favorita 🤍","queria tá pertinho de tu agora"];
+function infiniteLove(){document.getElementById("loveMessage").textContent=affection[Math.floor(Math.random()*affection.length)];hearts(4);}
+let found=0,heartPositions=[];
+function startGame(){found=0;heartPositions=[];while(heartPositions.length<5){const n=Math.floor(Math.random()*16);if(!heartPositions.includes(n))heartPositions.push(n);}const area=document.getElementById("gameArea");area.innerHTML="";for(let i=0;i<16;i++){const btn=document.createElement("button");btn.className="gameCell";btn.textContent="❔";btn.setAttribute("aria-label","Quadradinho "+(i+1));btn.onclick=function(){if(btn.disabled)return;btn.disabled=true;if(heartPositions.includes(i)){btn.textContent="🤍";found++;hearts(2);}else btn.textContent="🌷";document.getElementById("gameScore").textContent="Corações encontrados: "+found+" de 5";if(found===5)document.getElementById("gameMessage").textContent="Encontrou todos! Mas um coração já é teu 🤍";};area.appendChild(btn);}document.getElementById("gameScore").textContent="Corações encontrados: 0 de 5";document.getElementById("gameMessage").textContent="Boa sorte, princesa 🤍";}
+startGame();
+function chooseActivity(choice){const result=document.getElementById("activityResult");result.textContent="eu também queria "+choice+" contigo 🤍";result.classList.remove("hidden");}
+function declaration(){document.getElementById("declarationText").classList.toggle("hidden");hearts(12);}
+function saveCustomIdea(){const title=document.getElementById("customTitle").value.trim(),message=document.getElementById("customMessage").value.trim(),result=document.getElementById("customResult");result.innerHTML="";if(!title&&!message){result.textContent="Escreve um título ou uma mensagem primeiro. 🤍";return;}const h=document.createElement("h3");h.textContent=title||"Uma surpresa para ti 🤍";const p=document.createElement("p");p.textContent=message;result.appendChild(h);result.appendChild(p);hearts(5);}
+function hearts(amount){for(let i=0;i<amount;i++){const el=document.createElement("span");el.className="floating";el.textContent=["🤍","♡","🤍","✨","🌷"][Math.floor(Math.random()*5)];el.style.left=Math.random()*100+"%";el.style.fontSize=(16+Math.random()*20)+"px";const duration=3+Math.random()*3;el.style.animationDuration=duration+"s";document.body.appendChild(el);setTimeout(()=>el.remove(),duration*1000);}}
+setInterval(()=>{if(document.getElementById("lockScreen")&&!document.getElementById("lockScreen").classList.contains("hidden"))return;const el=document.createElement("span");el.className="floating";el.textContent=["♡","🤍","🤍","✧","🌷"][Math.floor(Math.random()*5)];el.style.left=Math.random()*100+"%";el.style.fontSize=(13+Math.random()*17)+"px";const duration=7+Math.random()*6;el.style.animationDuration=duration+"s";document.body.appendChild(el);setTimeout(()=>el.remove(),duration*1000);},600);
+function finalSurprise(){document.getElementById("finalMessage").classList.toggle("hidden");hearts(25);}
+</script>
+</body>
+</html>
